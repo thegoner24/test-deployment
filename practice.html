@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="A web application to show my blog" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Aditya Pradita" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My Blog</title>
+    <style type="text/tailwindcss">
+      .card {
+        @apply shadow-lg mb-8 rounded overflow-hidden bg-white;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <header class="mx-auto shadow-md fixed z-10 w-full bg-white">
+      <div class="container mx-auto p-4">
+        <div class="flex flex-wrap items-center justify-between">
+          <h1 class="text-2xl font-bold">My Blog</h1>
+          <button id="hamburger-button" class="lg:hidden">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <nav class="hidden lg:block lg:w-auto">
+            <ul class="flex space-x-4">
+              <li><a href="#">Home</a></li>
+              <li class="relative">
+                <a href="#">About</a>
+              </li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div
+      id="sidebar"
+      class="fixed w-[256px] left-0 h-full bg-white z-20 shadow lg:hidden -translate-x-full transition-all duration-300 ease-in-out"
+    >
+      <div class="p-6">
+        <button id="close-button" class="absolute top-4 right-4">
+          <i class="fas fa-times"></i>
+        </button>
+        <nav class="mt-8">
+          <ul class="space-y-4">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <main class="pt-24">
+      <div class="container mx-auto px-4">
+        <section class="relative mb-8">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="w-full p-4 rounded"
+          />
+          <i class="fa-solid fa-magnifying-glass absolute right-4 top-5"></i>
+        </section>
+        <div class="grid lg:gap-8 lg:grid-cols-3">
+          <div class="lg:col-span-2">
+            <section>
+              <h2 class="text-3xl font-bold mb-8">Latest Posts</h2>
+              <ul>
+                <li
+                  class="card hover:scale-105 transition-transform duration-500"
+                >
+                  <img
+                    class="w-full"
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    alt="A laptop laying on the desk"
+                  />
+                  <div class="p-8">
+                    <h3 class="text-xl font-bold mb-4">
+                      The Future of Web Development
+                    </h3>
+                    <p class="mb-4">
+                      Exploring upcoming trends and technologies that will shape
+                      the future of web development. From AI-driven design to
+                      WebAssembly, discover what's next in the world of web
+                      tech.
+                    </p>
+                    <a class="text-blue-600 hover:underline" href="#"
+                      >Read more</a
+                    >
+                  </div>
+                </li>
+                <li
+                  class="card hover:scale-105 transition-transform duration-500"
+                >
+                  <img
+                    class="w-full"
+                    src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    alt="A monitor showing JavaScript codes"
+                  />
+                  <div class="p-8">
+                    <h3 class="text-xl font-bold mb-4">
+                      Mastering JavaScript ES6+
+                    </h3>
+                    <p class="mb-4">
+                      A comprehensive guide to the latest features and best
+                      practices in modern JavaScript. Learn how to leverage ES6+
+                      to write cleaner, more efficient code.
+                    </p>
+                    <a class="text-blue-600 hover:underline" href="#"
+                      >Read more</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-3xl font-bold mb-8">Featured Posts</h2>
+              <article
+                class="card hover:scale-105 transition-transform duration-500"
+              >
+                <img
+                  class="w-full"
+                  src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                  alt="A laptop laying on the desk"
+                />
+                <div class="p-8">
+                  <h3 class="text-xl font-bold mb-4">
+                    The Art of Responsive Design
+                  </h3>
+                  <p class="mb-4">
+                    In the ever-evolving world of web development, responsive
+                    design has become more crucial than ever. This post explores
+                    the latest techniques and best practices for creating
+                    websites that look great on any device.
+                  </p>
+                  <p class="mb-4">
+                    We'll dive into the power of CSS Grid, Flexbox, and modern
+                    CSS features that make responsive design more intuitive and
+                    efficient. Whether you're a seasoned developer or just
+                    starting out, this article will provide valuable insights
+                    into crafting beautiful, responsive web layouts.
+                  </p>
+                  <a class="text-blue-600 hover:underline" href="#"
+                    >Read full article</a
+                  >
+                </div>
+              </article>
+            </section>
+          </div>
+
+          <div class="lg:col-span-1 lg:pt-[68px]">
+            <section>
+              <div class="card">
+                <div class="p-8">
+                  <h3 class="text-xl font-bold mb-4">Categories</h3>
+                  <ul class="space-y-2">
+                    <li>
+                      <a class="flex items-center hover:text-blue-600" href="#"
+                        ><i class="fa-solid fa-laptop-code w-5 mr-2"></i>
+                        Technology</a
+                      >
+                    </li>
+                    <li>
+                      <a class="flex items-center hover:text-blue-600" href="#"
+                        ><i class="fa-solid fa-paint-brush w-5 mr-2"></i>
+                        Design</a
+                      >
+                    </li>
+                    <li>
+                      <a class="flex items-center hover:text-blue-600" href="#"
+                        ><i class="fa-solid fa-code w-5 mr-2"></i>
+                        Development</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <div class="card p-8 space-y-3">
+                <h3 class="text-xl font-bold mb-4">About the Author</h3>
+                <div class="flex space-x-2 my-4 items-center">
+                  <img
+                    class="w-16 h-16 rounded-full object-cover"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                    alt="My Photo"
+                  />
+                  <div>
+                    <h4 class="text-lg font-semibold">John Doe</h4>
+                    <p>Web Designer & Web Developer</p>
+                  </div>
+                </div>
+                <p>
+                  Passionate about creating beautiful and functional web
+                  experiences. Always learning and sharing knowledge with the
+                  community.
+                </p>
+                <ul class="flex space-x-2">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-gray-600 hover:text-blue-500 transition-color duration-200"
+                      ><i class="fa-brands fa-twitter fa-lg"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      class="text-gray-600 hover:text-gray-800 transition-color duration-200"
+                      href="#"
+                      ><i class="fa-brands fa-github fa-lg"></i
+                    ></a>
+                  </li>
+                  <li
+                    class="text-gray-600 hover:text-red-700 transition-color duration-200"
+                  >
+                    <a href="#"><i class="fa-solid fa-envelope fa-lg"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-gray-800 text-white px-4 py-12">
+      <div class="container mx-auto">
+        <div class="lg:flex lg:space-x-4">
+          <section class="mb-4 lg:w-1/3">
+            <h2 class="text-3xl font-bold mb-4">My Blog</h2>
+            <p class="text-gray-400">
+              Exploring the latest in web development and design on My Blog.
+            </p>
+          </section>
+
+          <section class="mb-4 lg:w-1/3">
+            <h2 class="text-xl font-bold mb-4">Quick Links</h2>
+            <ul>
+              <li>
+                <a
+                  class="text-gray-400 hover:text-white transition-color duration-200"
+                  href="#"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 hover:text-white transition-color duration-200"
+                  href="#"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 hover:text-white transition-color duration-200"
+                  href="#"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section class="mb-4 lg:w-1/3">
+            <h2 class="text-xl font-bold mb-4">Follow Us</h2>
+            <ul class="flex space-x-4">
+              <li>
+                <a
+                  class="text-gray-400 hover:text-white transition-color duration-200"
+                  href="#"
+                  ><i class="fa-brands fa-twitter fa-lg"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 hover:text-white transition-color duration-200"
+                  href="#"
+                  ><i class="fa-brands fa-facebook fa-lg"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 hover:text-white transition-color duration-200"
+                  href="#"
+                  ><i class="fa-brands fa-instagram fa-lg"></i
+                ></a>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="py-8 mt-8 text-center border-t border-gray-700">
+          <p>© 2023 My Blog. All rights reserved.</p>
+        </section>
+      </div>
+    </footer>
+
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const hamburgerButton = document.getElementById("hamburger-button");
+      const closeButton = document.getElementById("close-button");
+
+      hamburgerButton.addEventListener("click", () => {
+        sidebar.classList.remove("-translate-x-full");
+      });
+
+      closeButton.addEventListener("click", () => {
+        sidebar.classList.add("-translate-x-full");
+      });
+    </script>
+
+    <!-- Planning:
+     Bikin pake mobile first approach
+    1. Bikin konten utama
+      a. Latest Post
+      b. Featured Post
+      c. Categories
+      d. About The Author
+      e. Searchbar
+    2. Header
+    3. Footer -->
+  </body>
+</html>
